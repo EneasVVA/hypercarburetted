@@ -1,6 +1,8 @@
 plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
+    id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.androidHilt)
 }
 
 android {
@@ -23,11 +25,24 @@ android {
 }
 
 dependencies {
+    //Compile time dependencies
+    kapt(Libraries.hiltCompiler)
 
+    // Application dependencies
     implementation(Libraries.ktxCore)
     implementation(Libraries.appCompat)
     implementation(Libraries.material)
-    testImplementation(TestLibraries.junit4)
+    implementation(Libraries.hilt)
+
+    // For instrumentation tests
     androidTestImplementation(TestLibraries.testExtJunit)
     androidTestImplementation(TestLibraries.espressoCore)
+    androidTestImplementation(TestLibraries.hilt)
+
+    // For local unit tests
+    testImplementation(TestLibraries.junit4)
+    testImplementation(TestLibraries.hilt)
+
+
+
 }

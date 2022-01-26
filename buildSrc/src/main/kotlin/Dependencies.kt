@@ -19,6 +19,7 @@ object BuildPlugins {
     object Versions {
         const val buildToolsVersion = "4.2.0"
         const val gradleVersion = "7.3.3"
+        const val hilt = "2.40.5"
     }
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.buildToolsVersion}"
@@ -26,6 +27,9 @@ object BuildPlugins {
         "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.standardLibrary}"
     const val androidApplication = "com.android.application"
     const val kotlinAndroid = "kotlin-android"
+    const val kotlinKapt = "kotlin-kapt"
+    const val androidHilt = "dagger.hilt.android.plugin"
+    const val hiltGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
 }
 
 object Libraries {
@@ -33,11 +37,14 @@ object Libraries {
         const val ktx = "1.7.0"
         const val appCompat = "1.4.1"
         const val material = "1.5.0"
+        const val hilt = BuildPlugins.Versions.hilt
     }
 
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
 }
 
 object TestLibraries {
@@ -45,10 +52,12 @@ object TestLibraries {
         const val junit4 = "4.13.1"
         const val espressoCore = "3.2.0"
         const val testExtensions = "1.1.1"
-
+        const val hilt = BuildPlugins.Versions.hilt
     }
 
     const val junit4 = "junit:junit:${Versions.junit4}"
     const val testExtJunit = "androidx.test.ext:junit:${Versions.testExtensions}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
+
 }
