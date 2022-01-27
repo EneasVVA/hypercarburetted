@@ -33,6 +33,11 @@ dependencies {
     implementation(Libraries.appCompat)
     implementation(Libraries.material)
     implementation(Libraries.hilt)
+    implementation(Libraries.kotlinCoroutines)
+    implementation(Libraries.kotlinCoroutinesAndroid)
+    implementation(Libraries.navigationFragment)
+    implementation(Libraries.navigationUi)
+    implementation(Libraries.navigationDynamicFeatures)
 
     // For instrumentation tests
     androidTestImplementation(TestLibraries.testExtJunit)

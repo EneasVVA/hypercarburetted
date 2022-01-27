@@ -1,5 +1,6 @@
 object Kotlin {
     const val standardLibrary = "1.4.10"
+    const val coroutines = "1.3.9"
 }
 
 object AndroidClient {
@@ -38,6 +39,7 @@ object Libraries {
         const val appCompat = "1.4.1"
         const val material = "1.5.0"
         const val hilt = BuildPlugins.Versions.hilt
+        const val navigation = "2.3.5"
     }
 
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
@@ -45,6 +47,13 @@ object Libraries {
     const val material = "com.google.android.material:material:${Versions.material}"
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val kotlinCoroutines =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Kotlin.coroutines}"
+    const val kotlinCoroutinesAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Kotlin.coroutines}"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val navigationDynamicFeatures = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
 }
 
 object TestLibraries {
@@ -59,5 +68,4 @@ object TestLibraries {
     const val testExtJunit = "androidx.test.ext:junit:${Versions.testExtensions}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
-
 }
