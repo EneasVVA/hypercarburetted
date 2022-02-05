@@ -1,25 +1,39 @@
 package com.rabobank.rabobankassignament.interactor
 
-import com.rabobank.rabobankassignament.exception.Failure
-import com.rabobank.rabobankassignament.functional.Either
+import com.rabobank.rabobankassignament.core.functional.Either
+import com.rabobank.rabobankassignament.core.exception.Failure
 import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-typealias NoArguments = Any
+abstract class BaseUseCase<out ReturnType, in Arguments>
+    constructor(
+        private val coroutineContext: CoroutineContext = Dispatchers.Main,
+        private val posCoroutineContext: CoroutineContext = Dispatchers.IO
+    )  where ReturnType : Any, Arguments : BaseUseCase.Arguments {
 
-abstract class BaseUseCase<out ReturnType, in Arguments> where ReturnType : Any {
+    abstract suspend fun buildUseCase(arguments: Arguments): Either<Failure, ReturnType>
 
-    abstract suspend fun run(arguments: Arguments): Either<Failure, ReturnType>
-
-    operator fun invoke(
+    fun execute(
         arguments: Arguments,
         scope: CoroutineScope = GlobalScope,
         onResult: (Either<Failure, ReturnType>) -> Unit = {}
     ) {
-        scope.launch(Dispatchers.Main) {
-            val deferred = async(Dispatchers.IO) {
-                run(arguments)
+        scope.launch(coroutineContext) {
+            val deferred = async(posCoroutineContext) {
+                buildUseCase(arguments)
             }
             onResult(deferred.await())
         }
     }
+
+    fun execute(
+        arguments: Arguments,
+        scope: CoroutineScope = GlobalScope
+    ) = runBlocking(scope.coroutineContext) {
+            buildUseCase(arguments)
+        }
+
+    interface Arguments
+
+    class NoArguments : Arguments
 }

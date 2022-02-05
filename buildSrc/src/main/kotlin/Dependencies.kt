@@ -1,6 +1,6 @@
 object Kotlin {
     const val standardLibrary = "1.6.10"
-    const val coroutines = "1.3.9"
+    const val coroutines = "1.6.0"
 }
 
 object AndroidClient {
@@ -43,6 +43,7 @@ object Libraries {
         const val hilt = BuildPlugins.Versions.hilt
         const val navigation = BuildPlugins.Versions.navigation
         const val constraintLayout = "2.1.3"
+        const val paging = "3.1.0"
     }
 
     const val ktxCore = "androidx.core:core-ktx:${Versions.ktx}"
@@ -59,6 +60,7 @@ object Libraries {
     const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val navigationDynamicFeatures = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
 }
 
 object TestLibraries {

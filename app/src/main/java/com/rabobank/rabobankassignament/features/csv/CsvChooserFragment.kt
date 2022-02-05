@@ -1,9 +1,7 @@
 package com.rabobank.rabobankassignament.features.csv
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,16 +13,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CsvChooserFragment : BaseFragment () {
-    private var _binding: FragmentCsvChooserBinding? = null
-    private val binding get() = _binding
+class CsvChooserFragment : BaseFragment<FragmentCsvChooserBinding>(FragmentCsvChooserBinding::inflate) {
 
     @Inject
     lateinit var csvResourcesAdapter: CsvResourcesAdapter
 
     private val csvChooserViewModel : CsvChooserViewModel by viewModels()
-
-    override fun layoutId() = R.layout.fragment_csv_chooser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,16 +26,6 @@ class CsvChooserFragment : BaseFragment () {
         with(csvChooserViewModel) {
             observe(resources, ::renderCsvResourcesList)
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentCsvChooserBinding.inflate(inflater, container, false)
-
-        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,18 +52,12 @@ class CsvChooserFragment : BaseFragment () {
     private fun setListenerCsvParseButton() {
         binding?.btnParse?.setOnClickListener {
             csvChooserViewModel.getResourceSelected()?.let {
-                CsvChooserFragmentDirections.actionCSVChooserFragmentToCSVParsedFragment(csvResource = it.resource)
-                findNavController().navigate(R.id.action_CSVChooserFragment_to_CSVParsedFragment)
+                findNavController().navigate(CsvChooserFragmentDirections.actionCSVChooserFragmentToCSVParsedFragment(it.resource))
             }
         }
     }
 
     private fun renderCsvResourcesList(list: List<CsvResourceView>?) {
         csvResourcesAdapter.resources = list.orEmpty()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

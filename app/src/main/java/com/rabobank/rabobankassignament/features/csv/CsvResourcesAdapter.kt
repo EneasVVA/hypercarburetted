@@ -9,12 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rabobank.rabobankassignament.R
 import com.rabobank.rabobankassignament.core.extension.inflate
 import javax.inject.Inject
+import kotlin.Int
 import kotlin.properties.Delegates
 
 class CsvResourcesAdapter
 @Inject constructor() : RecyclerView.Adapter<CsvResourcesAdapter.ViewHolder>() {
     internal var resources: List<CsvResourceView> by Delegates.observable(emptyList()) { _, oldValue, newValue ->
-        val changes = oldValue - newValue
+        val changes = newValue - oldValue
         changes.forEach { csvResourceView ->
             notifyItemChanged(resources.indexOfFirst { csvResourceView.resource == it.resource })
         }
@@ -32,8 +33,8 @@ class CsvResourcesAdapter
     override fun getItemCount() = resources.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvFilename: TextView = itemView.findViewById<TextView>(R.id.tv_filename)
-        val ivRadio: ImageView = itemView.findViewById(R.id.iv_radio)
+        private val tvFilename: TextView = itemView.findViewById(R.id.tv_filename)
+        private val ivRadio: ImageView = itemView.findViewById(R.id.iv_radio)
 
         fun bind(csvResourceView: CsvResourceView, clickListener: (CsvResourceView) -> Unit) {
             tvFilename.text = csvResourceView.filename

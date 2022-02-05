@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.rabobank.rabobankassignament.core.platform.BaseViewModel
-import com.rabobank.rabobankassignament.interactor.NoArguments
+import com.rabobank.rabobankassignament.interactor.BaseUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ class CsvChooserViewModel
     val resources: LiveData<List<CsvResourceView>> = _resources
 
     fun loadResources() =
-        getCsvResources(NoArguments(), viewModelScope) {
+        getCsvResources.execute(BaseUseCase.NoArguments(), viewModelScope) {
             it.fold(::handleFailure, ::handleCsvResourcesList)
         }
 

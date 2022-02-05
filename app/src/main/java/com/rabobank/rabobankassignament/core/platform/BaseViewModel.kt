@@ -3,7 +3,7 @@ package com.rabobank.rabobankassignament.core.platform
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.rabobank.rabobankassignament.exception.Failure
+import com.rabobank.rabobankassignament.core.exception.Failure
 
 abstract class BaseViewModel : ViewModel() {
 

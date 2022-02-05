@@ -1,47 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="16dp"
-    tools:context=".features.csv.CsvParsedFragment">
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
 
-    <TableLayout
-        android:layout_width="match_parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/csvSpreadSheet"
+        android:scrollbars="horizontal"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent">
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_weight="1"
-                tools:text="Header 1" />
-            <TextView
-                android:layout_weight="1"
-                tools:text="Header 2" />
-            <TextView
-                android:layout_weight="1"
-                tools:text="Header 3" />
-            <TextView
-                android:layout_weight="1"
-                tools:text="Header 4" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_weight="1"
-                tools:text="Value 1" />
-            <TextView
-                android:layout_weight="1"
-                tools:text="Value 2" />
-            <TextView
-                android:layout_weight="1"
-                tools:text="Value 3" />
-            <TextView
-                android:layout_weight="1"
-                tools:text="Value 4" />
-        </TableRow>
-    </TableLayout>
-
-</FrameLayout>
+    </androidx.recyclerview.widget.RecyclerView>
+</HorizontalScrollView>

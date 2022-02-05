@@ -38,10 +38,6 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     //Compile time dependencies
     kapt(Libraries.hiltCompiler)
 
@@ -56,6 +52,7 @@ dependencies {
     implementation(Libraries.navigationUi)
     implementation(Libraries.navigationDynamicFeatures)
     implementation(Libraries.constraintLayout)
+    implementation(Libraries.paging)
 
     // For instrumentation tests
     androidTestImplementation(TestLibraries.testExtJunit)

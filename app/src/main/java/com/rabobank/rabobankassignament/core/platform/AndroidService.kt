@@ -3,16 +3,16 @@ package com.rabobank.rabobankassignament.core.platform
 import android.content.Context
 import android.util.TypedValue
 import com.rabobank.rabobankassignament.R
-import com.rabobank.rabobankassignament.exception.Failure
-import com.rabobank.rabobankassignament.features.csv.CsvResource
-import com.rabobank.rabobankassignament.functional.Either
+import com.rabobank.rabobankassignament.core.functional.Either
+import com.rabobank.rabobankassignament.core.exception.Failure
+import com.rabobank.rabobankassignament.features.csv.CsvResourceDto
 import java.lang.reflect.Field
 import javax.inject.Inject
 
 class AndroidService
-@Inject constructor(private val context: Context) {
-    fun getResourcesList(): Either<Failure, List<CsvResource>> {
-        val csvResources: MutableList<CsvResource> = ArrayList()
+@Inject constructor(val context: Context) {
+    fun getResourcesList(): Either<Failure, List<CsvResourceDto>> {
+        val csvResources: MutableList<CsvResourceDto> = ArrayList()
         val fields: Array<Field> = R.raw::class.java.fields
 
         fields.forEach {
@@ -22,13 +22,13 @@ class AndroidService
                 context.resources.getValue(resourceId, typedValue, true)
 
                 csvResources.add(
-                    CsvResource(
+                    CsvResourceDto(
                         resource = resourceId,
                         filename = typedValue.string.toString()
                     )
                 )
             } catch (e: Exception) {
-                Either.Left(Failure.CsvCannotBeListedFailure)
+                Either.Left(Failure.CsvResourcesCannotBeListedFailure)
             }
         }
 
