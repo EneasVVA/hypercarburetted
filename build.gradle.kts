@@ -6,10 +6,10 @@ buildscript {
     }
 
     dependencies {
-        classpath (BuildPlugins.androidGradlePlugin)
-        classpath (BuildPlugins.kotlinGradlePlugin)
-        classpath (BuildPlugins.hiltGradlePlugin)
-        classpath (BuildPlugins.navigationSafeArgs)
+        classpath(BuildPlugins.androidGradlePlugin)
+        classpath(BuildPlugins.kotlinGradlePlugin)
+        classpath(BuildPlugins.hiltGradlePlugin)
+        classpath(BuildPlugins.navigationSafeArgs)
     }
 
     allprojects {

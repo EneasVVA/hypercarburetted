@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rabobank.rabobankassignament.R
 import com.rabobank.rabobankassignament.core.extension.inflate
 import javax.inject.Inject
-import kotlin.Int
 import kotlin.properties.Delegates
 
 class CsvResourcesAdapter
@@ -48,8 +47,9 @@ class CsvResourcesAdapter
         private fun checkRadio(enable: Boolean) = ivRadio.setImageDrawable(
             ResourcesCompat.getDrawable(
                 itemView.resources,
-                if(enable) R.drawable.ic_radio_button_checked else R.drawable.ic_radio_button_unchecked,
-                itemView.context.theme)
+                if (enable) R.drawable.ic_radio_button_checked else R.drawable.ic_radio_button_unchecked,
+                itemView.context.theme
+            )
         )
     }
 }

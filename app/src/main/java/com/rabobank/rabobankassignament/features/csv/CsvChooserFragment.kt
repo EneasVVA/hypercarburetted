@@ -6,25 +6,39 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rabobank.rabobankassignament.R
+import com.rabobank.rabobankassignament.core.exception.Failure
+import com.rabobank.rabobankassignament.core.extension.failure
 import com.rabobank.rabobankassignament.core.extension.observe
+import com.rabobank.rabobankassignament.core.extension.showErrorDialog
 import com.rabobank.rabobankassignament.core.platform.BaseFragment
 import com.rabobank.rabobankassignament.databinding.FragmentCsvChooserBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CsvChooserFragment : BaseFragment<FragmentCsvChooserBinding>(FragmentCsvChooserBinding::inflate) {
+class CsvChooserFragment :
+    BaseFragment<FragmentCsvChooserBinding>(FragmentCsvChooserBinding::inflate) {
 
     @Inject
     lateinit var csvResourcesAdapter: CsvResourcesAdapter
 
-    private val csvChooserViewModel : CsvChooserViewModel by viewModels()
+    private val csvChooserViewModel: CsvChooserViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         with(csvChooserViewModel) {
             observe(resources, ::renderCsvResourcesList)
+            failure(failure, ::renderFailure)
+        }
+    }
+
+    private fun renderFailure(failure: Failure?) {
+        animationLoader?.hideLoading()
+
+        when (failure) {
+            is Failure.CsvResourcesCannotBeListedFailure -> context?.showErrorDialog(R.string.error_loading_csv_resources)
+            else -> context?.showErrorDialog(R.string.unknown_error)
         }
     }
 
@@ -35,6 +49,7 @@ class CsvChooserFragment : BaseFragment<FragmentCsvChooserBinding>(FragmentCsvCh
     }
 
     private fun initializeView() {
+        animationLoader?.showLoading()
         setUpResourcesList()
         setListenerCsvParseButton()
     }
@@ -52,12 +67,17 @@ class CsvChooserFragment : BaseFragment<FragmentCsvChooserBinding>(FragmentCsvCh
     private fun setListenerCsvParseButton() {
         binding?.btnParse?.setOnClickListener {
             csvChooserViewModel.getResourceSelected()?.let {
-                findNavController().navigate(CsvChooserFragmentDirections.actionCSVChooserFragmentToCSVParsedFragment(it.resource))
+                findNavController().navigate(
+                    CsvChooserFragmentDirections.actionCSVChooserFragmentToCSVParsedFragment(
+                        it.resource
+                    )
+                )
             }
         }
     }
 
     private fun renderCsvResourcesList(list: List<CsvResourceView>?) {
         csvResourcesAdapter.resources = list.orEmpty()
+        animationLoader?.hideLoading()
     }
 }

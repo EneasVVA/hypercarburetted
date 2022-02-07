@@ -3,8 +3,8 @@ package com.rabobank.rabobankassignament.features.csv
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.rabobank.rabobankassignament.core.interactor.BaseUseCase
 import com.rabobank.rabobankassignament.core.platform.BaseViewModel
-import com.rabobank.rabobankassignament.interactor.BaseUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

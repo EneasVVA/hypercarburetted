@@ -19,7 +19,7 @@
         android:id="@+id/CSVParsedFragment"
         android:name="com.rabobank.rabobankassignament.features.csv.CsvParsedFragment"
         android:label="CSV Viewer"
-        tools:layout="@layout/fragment_csv_parsed" >
+        tools:layout="@layout/fragment_csv_parsed">
         <argument
             android:name="csvResource"
             app:argType="reference" />

@@ -3,5 +3,10 @@
     android:id="@+id/csv_row_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-    <include android:id="@+id/csv_cell_position" layout="@layout/csv_cell" />
+
+    <include
+        android:id="@+id/csv_cell_position"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        layout="@layout/csv_cell" />
 </androidx.appcompat.widget.LinearLayoutCompat>

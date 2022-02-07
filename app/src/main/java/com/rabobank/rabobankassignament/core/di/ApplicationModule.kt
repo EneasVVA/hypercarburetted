@@ -18,7 +18,8 @@ class ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideAndroidService(@ApplicationContext context: Context) : AndroidService = AndroidService(context)
+    fun provideAndroidService(@ApplicationContext context: Context): AndroidService =
+        AndroidService(context)
 
     @Provides
     @Singleton
@@ -26,7 +27,7 @@ class ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideCsvSheetAdapter() : CsvSheetAdapter {
+    fun provideCsvSheetAdapter(): CsvSheetAdapter {
         return CsvSheetAdapter(CsvLineView.diffCallback)
     }
 }

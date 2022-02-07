@@ -5,5 +5,5 @@ package com.rabobank.rabobankassignament.core.exception
  */
 sealed class Failure {
     object CsvResourcesCannotBeListedFailure : Failure()
-    object CsvCannotBeReadFailure : Failure()
+    object CsvGetDataError : Failure()
 }

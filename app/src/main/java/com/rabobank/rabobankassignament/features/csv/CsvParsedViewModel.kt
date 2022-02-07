@@ -3,14 +3,13 @@ package com.rabobank.rabobankassignament.features.csv
 import androidx.annotation.RawRes
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
+import com.rabobank.rabobankassignament.core.exception.Failure
 import com.rabobank.rabobankassignament.core.functional.getOrElse
 import com.rabobank.rabobankassignament.core.platform.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.runBlocking
-import java.lang.RuntimeException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,11 +22,20 @@ class CsvParsedViewModel
                 pageSize = 10
             ),
             0,
-        )  {
-            readCsvResource.execute(ReadCsvResource.ArgumentsImpl(csvResource), viewModelScope).getOrElse(null)
-                ?: throw RuntimeException()
+        ) {
+            readCsvResource.execute(ReadCsvResource.ArgumentsImpl(csvResource), viewModelScope)
+                .getOrElse(null)
+                ?: throw RuntimeException("CSV Cannot be loaded")
         }.flow
-            .map { it.map { csvLine: CsvLine -> CsvLineView(csvLine.position.toString(), csvLine.columns) } }
+            .map {
+                it.map { csvLine: CsvLine ->
+                    CsvLineView(
+                        csvLine.position.toString(),
+                        csvLine.columns
+                    )
+                }
+            }
             .cachedIn(viewModelScope)
+            .catch { handleFailure(Failure.CsvGetDataError) }
     }
 }

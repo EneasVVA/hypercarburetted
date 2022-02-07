@@ -1,15 +1,15 @@
-package com.rabobank.rabobankassignament.interactor
+package com.rabobank.rabobankassignament.core.interactor
 
-import com.rabobank.rabobankassignament.core.functional.Either
 import com.rabobank.rabobankassignament.core.exception.Failure
+import com.rabobank.rabobankassignament.core.functional.Either
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 abstract class BaseUseCase<out ReturnType, in Arguments>
-    constructor(
-        private val coroutineContext: CoroutineContext = Dispatchers.Main,
-        private val posCoroutineContext: CoroutineContext = Dispatchers.IO
-    )  where ReturnType : Any, Arguments : BaseUseCase.Arguments {
+constructor(
+    private val coroutineContext: CoroutineContext = Dispatchers.Main,
+    private val posCoroutineContext: CoroutineContext = Dispatchers.IO
+) where ReturnType : Any, Arguments : BaseUseCase.Arguments {
 
     abstract suspend fun buildUseCase(arguments: Arguments): Either<Failure, ReturnType>
 
@@ -30,8 +30,8 @@ abstract class BaseUseCase<out ReturnType, in Arguments>
         arguments: Arguments,
         scope: CoroutineScope = GlobalScope
     ) = runBlocking(scope.coroutineContext) {
-            buildUseCase(arguments)
-        }
+        buildUseCase(arguments)
+    }
 
     interface Arguments
 

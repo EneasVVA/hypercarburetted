@@ -3,8 +3,8 @@ package com.rabobank.rabobankassignament.core.platform
 import android.content.Context
 import android.util.TypedValue
 import com.rabobank.rabobankassignament.R
-import com.rabobank.rabobankassignament.core.functional.Either
 import com.rabobank.rabobankassignament.core.exception.Failure
+import com.rabobank.rabobankassignament.core.functional.Either
 import com.rabobank.rabobankassignament.features.csv.CsvResourceDto
 import java.lang.reflect.Field
 import javax.inject.Inject

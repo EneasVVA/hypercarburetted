@@ -7,7 +7,7 @@
     tools:context=".features.csv.CsvChooserFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/csvResourcesList"
+        android:id="@+id/csv_resources_list"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -16,13 +16,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnParse"
+        android:id="@+id/btn_parse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/show_parsed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/csvResourcesList" />
+        app:layout_constraintTop_toBottomOf="@+id/csv_resources_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,4 +4,10 @@
     <string name="choose_csv">Choose CSV resource</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="csv_radio_selector">csv radio selector</string>
+    <string name="csv_row_cannot_be_read">Row cannot be read</string>
+    <string name="csv_header_position">#</string>
+    <string name="error_loading_csv_resources">Loading CSV resources cannot be loaded</string>
+    <string name="unknown_error">Unexpected error</string>
+    <string name="loading">Loading data</string>
+    <string name="error_getting_csv_data">Some error getting data occurred</string>
 </resources>

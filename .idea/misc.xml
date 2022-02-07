@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/drawable/border.xml" value="0.2355" />
         <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/activity_csvchooser.xml" value="0.33" />
-        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/activity_main.xml" value="0.1762917933130699" />
-        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/fragment_csv_chooser.xml" value="0.1911231884057971" />
-        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/fragment_csv_parsed.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/activity_main.xml" value="0.25501432664756446" />
+        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/csv_cell.xml" value="0.33" />
+        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/csv_header.xml" value="0.19837537409149208" />
+        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/csv_row.xml" value="0.19581017528858485" />
+        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/fragment_csv_chooser.xml" value="0.33" />
+        <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/fragment_csv_parsed.xml" value="0.33" />
         <entry key="..\:/Users/eneas/AndroidStudioProjects/rabobankassignament/app/src/main/res/layout/row_csv_resource.xml" value="0.33" />
       </map>
     </option>
