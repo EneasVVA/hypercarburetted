@@ -49,6 +49,11 @@ class CsvParsedFragment :
         readCsvResource()
     }
 
+    override fun onDestroyView() {
+        binding?.csvSpreadSheet?.adapter = null
+        super.onDestroyView()
+    }
+
     private fun readCsvResource() {
         lifecycleScope.launch {
             animationLoader?.showLoading()

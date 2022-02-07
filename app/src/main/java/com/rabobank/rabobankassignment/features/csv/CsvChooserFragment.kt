@@ -48,6 +48,11 @@ class CsvChooserFragment :
         loadResourcesList()
     }
 
+    override fun onDestroyView() {
+        binding?.csvResourcesList?.adapter = null
+        super.onDestroyView()
+    }
+
     private fun initializeView() {
         animationLoader?.showLoading()
         setUpResourcesList()

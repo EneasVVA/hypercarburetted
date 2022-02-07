@@ -10,14 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rabobank.rabobankassignment.R
 import com.rabobank.rabobankassignment.core.extension.inflate
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import javax.inject.Inject
-import kotlin.coroutines.CoroutineContext
 
-class CsvSheetAdapter
-@Inject constructor(
-    diffCallback: DiffUtil.ItemCallback<CsvLineView>,
+class CsvSheetAdapter constructor(
+    diffCallback: DiffUtil.ItemCallback<CsvLineView> = CsvLineView.diffCallback,
     mainDispatcher: CoroutineDispatcher = Dispatchers.Main,
     workerDispatcher: CoroutineDispatcher = Dispatchers.Default
     ): PagingDataAdapter<CsvLineView, CsvSheetAdapter.ViewHolder>(diffCallback, mainDispatcher, workerDispatcher) {
