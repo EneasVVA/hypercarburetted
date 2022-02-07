@@ -1,18 +1,17 @@
 ## Functional requirements
 
-![Screen for choosing the CSV resource](./docs/csv_chooser.png)
+<img alt="Screen for choosing the CSV resource" src="./docs/csv_chooser.png" width="250" />
+Operate with the application is simple, on the first screen we find the selection of the CSV file,
+in order to facilitate the possibility of more CSV files to the list, simply add it in res/raw.
 
-    Operate with the application is simple, on the first screen we find the selection of the CSV file,
-    in order to facilitate the possibility of more CSV files to the list, simply add it in res/raw.
-    
-    The application is ready to read files regardless of their size without this affecting their well working.
+The application is ready to read files regardless of their size without this affecting their well working.
 
-    Once the file has been added and the compilation has been done, click on the file that you want to parse and
-    click on the "SHOW PARSED" button
+Once the file has been added and the compilation has been done, click on the file that you want to parse and
+click on the "SHOW PARSED" button
 
-    ![Screen for watching the CSV file parsed](./docs/csv_parsed.png)
-
+<img alt="Screen for watching the CSV file parsed" src="./docs/csv_parsed.png" width="250" />
     Finally we can see the parsed CSV, being able to explore its content in tabular way.
+    
 
 ## How architecture is built
 
