@@ -1,4 +1,4 @@
-package com.rabobank.rabobankassignament
+package com.rabobank.rabobankassignment
 
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint

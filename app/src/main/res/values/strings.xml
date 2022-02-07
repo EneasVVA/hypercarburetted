@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">rabobankassignament</string>
+    <string name="app_name">rabobankassignment</string>
     <string name="show_parsed">Show parsed</string>
     <string name="choose_csv">Choose CSV resource</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>

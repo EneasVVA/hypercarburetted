@@ -4,7 +4,7 @@ object Kotlin {
 }
 
 object AndroidClient {
-    const val appId = "com.rabobank.rabobankassignament"
+    const val appId = "com.rabobank.rabobankassignment"
     const val versionCode = 1
     const val versionName = "1.0"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"

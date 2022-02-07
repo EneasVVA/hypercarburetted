@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/CSVChooserFragment"
-        android:name="com.rabobank.rabobankassignament.features.csv.CsvChooserFragment"
+        android:name="com.rabobank.rabobankassignment.features.csv.CsvChooserFragment"
         android:label="Choose a CSV file"
         tools:layout="@layout/fragment_csv_chooser">
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/CSVParsedFragment"
-        android:name="com.rabobank.rabobankassignament.features.csv.CsvParsedFragment"
+        android:name="com.rabobank.rabobankassignment.features.csv.CsvParsedFragment"
         android:label="CSV Viewer"
         tools:layout="@layout/fragment_csv_parsed">
         <argument
