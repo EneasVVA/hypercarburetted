@@ -61,8 +61,10 @@ click on the "SHOW PARSED" button
     easily collaborate with other developers without the cognitive load of having to understand particularities of
     the first approximation.
 
-    The first approach can be seen in the "csv_batches_approach" branch, its efficiency is as good as Pagging 3, but
-    the second one was chosen for the reasons already explained above.
+    The first approach can be seen in the "csv_batches_approach" branch (please, do not consider code style since just 
+    pretends to be a proof of concept) its efficiency is as good as Pagging 3, but initialization is far heavier in the first
+    approach because it has to count lines though some improves could be done, but the second one was chosen for the reasons 
+    already explained above.
 
 ## Testing
 
